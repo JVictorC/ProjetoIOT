@@ -15,8 +15,8 @@ docker run --name postgres-iot -e POSTGRES_PASSWORD=sua_senha -e POSTGRES_DB=iot
 # 4) Configurar/garantir DB/tabelas (seu script)
 python3 ConfigPostgres.py
 
-# 6) Criar as views
+# 5) Criar as views
 python3 CreateAllViews.py
 
-# 7) Rodar o dashboard (SEM usar python dashboard.py)
-streamlit run dashboard.py
+# 6) Rodar o dashboard (SEM usar python dashboard.py)
+python3 -m streamlit run dashboard.py
