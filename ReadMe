@@ -1,0 +1,22 @@
+Acesse o diretorio do Projeto e Execute:
+
+# OBS no meu sistema para rodar o python utilizo o comando python3, porem tem casos que e somente python
+
+# 1) (Opcional, recomendado) Criar e ativar venv
+python3 -m venv venv
+source venv/bin/activate
+
+# 2) Instalar dependências
+pip install streamlit pandas sqlalchemy psycopg2-binary plotly
+
+# 3) Subir PostgreSQL via Docker (senha e DB nas anotações abaixo)
+docker run --name postgres-iot -e POSTGRES_PASSWORD=sua_senha -e POSTGRES_DB=iot -p 5432:5432 -v postgres_iot_data:/var/lib/postgresql/data -d postgres
+
+# 4) Configurar/garantir DB/tabelas (seu script)
+python3 ConfigPostgres.py
+
+# 6) Criar as views
+python3 CreateAllViews.py
+
+# 7) Rodar o dashboard (SEM usar python dashboard.py)
+streamlit run dashboard.py
